@@ -1,5 +1,13 @@
 <div align="center">
 
+![Metrics](https://github.com/Baastian05/Baastian05/blob/main/github-metrics.svg)
+
+</div>
+
+---
+
+<div align="center">
+
 # Diego Torres
 
 **Estudiante de Ingeniería en Software**
@@ -33,9 +41,3 @@ Universidad Técnica de Ambato · Cuarto semestre
 | **Mi aporte** | Base de datos en Supabase, backend y nuevas funcionalidades |
 | **Aporte de mi hermano** | Frontend y nuevas funcionalidades |
 | **Ejemplo en vivo** | [dtowers.vercel.app/fadr-culture](https://dtowers.vercel.app/fadr-culture) |
-
----
-
-## Actividad
-
-![Metrics](https://github.com/Baastian05/Baastian05/blob/main/github-metrics.svg)
