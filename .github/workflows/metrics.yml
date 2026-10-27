@@ -1,0 +1,54 @@
+name: Metrics
+
+on:
+  # Actualización diaria / Daily update
+  schedule:
+    - cron: "0 0 * * *"
+  # Ejecución manual desde la pestaña Actions / Manual run from the Actions tab
+  workflow_dispatch:
+  # Se ejecuta al hacer push a main o master / Runs on push to main or master
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Token personal (NO el GITHUB_TOKEN). Se guarda como secret con el nombre METRICS_TOKEN
+          # Personal token (NOT GITHUB_TOKEN). Stored as a repo secret named METRICS_TOKEN
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Baastian05
+          filename: github-metrics.svg
+          template: classic
+
+          # Cabecera, actividad, estadísticas de comunidad, repositorios y metadatos
+          base: header, activity, community, repositories, metadata
+
+          # Opcional: tu zona horaria para que las horas de actividad salgan correctas
+          # Optional: your timezone so activity hours are shown correctly
+          # config_timezone: Region/City
+
+          # Calendario isométrico con rachas y commits por día
+          plugin_isocalendar: yes
+
+          # Hábitos de programación y gráficos de actividad por hora y día
+          # Si este plugin da error en tu primera ejecución, borra estas dos líneas
+          plugin_habits: yes
+          plugin_habits_charts: yes
+
+          # Lenguajes más usados
+          plugin_languages: yes
+          plugin_languages_limit: 8
+
+          # Logros (desde el nivel C para que se vean al empezar)
+          plugin_achievements: yes
+          plugin_achievements_threshold: C
+          plugin_achievements_display: compact
+
+          # Estado de issues y pull requests en tus repositorios
+          plugin_followup: yes
+          plugin_followup_sections: repositories
